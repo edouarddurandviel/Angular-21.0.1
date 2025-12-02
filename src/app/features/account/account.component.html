@@ -1,87 +1,74 @@
 <div class="d-flex flex-column">
-<h1>Account page</h1>
-<div class="alert alert-primary" role="alert">
-  User form. Send and retreive data with @ngrx/entity. It also contains a link to a more detailed
-  presentation off a single user profile.
-  <a class="icon-link" href="/account-details/{{ id }}">
-    User account details
-    <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16" aria-hidden="true">
-      <path
-        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-      />
-    </svg>
-  </a>
-</div>
+  <h1>Account page</h1>
+  <div class="alert alert-primary" role="alert">
+    User form. Send and retreive data with @ngrx/entity. It also contains a link to a more detailed
+    presentation off a single user profile.
+    <a class="icon-link" href="/account-details/{{ id }}">
+      User account details
+      <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+        <path
+          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+        />
+      </svg>
+    </a>
+  </div>
 
-<div class="alert alert-primary" role="alert">
-  createAction - Reducers (handle transitions from one state to the next state)
-</div>
+  <div class="alert alert-primary" role="alert">
+    createAction - Reducers (handle transitions from one state to the next state)
+  </div>
 
-<div class="grid">
-  <div class="row">
-    <div class="col-6">
-      <form [formGroup]="account" (ngSubmit)="onSubmit()" class="row g-3">
-        <div class="mb-3">
-          <label for="firstName" class="form-label">First name: </label>
-          <input
-            id="firstName"
-            type="text"
-            formControlName="firstName"
-            required
-            class="form-control"
-          />
-          @if (firstName && firstName.invalid && (firstName.dirty || firstName.touched)) {
-            <div class="alert-danger small">
-              @if (firstName.hasError('required')) {
-                <div>First name is required.</div>
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <label for="lastName" class="form-label">Last name: </label>
-          <input
-            id="lastName"
-            type="text"
-            class="form-control"
-            formControlName="lastName"
-            required
-          />
-           @if (lastName && lastName.invalid && (lastName.dirty || lastName.touched)) {
-            <div class="alert-danger small">
-              @if (lastName.hasError('required')) {
-                Last name is required.
-              }
-            </div>
-          }
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email: </label>
-          <input id="email" type="text" class="form-control" formControlName="email" required />
-           @if (email && email.invalid && (email.dirty || email.touched)) {
-            <div class="alert-danger small">
-              @if (email.hasError('required')) {
-                <div>Email is required.</div>
-              }
-              @if (email.hasError('email')) {
-                <div>Email is invalid.</div>
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <div class="form-check">
+  <div class="grid">
+    <div class="row">
+      <div class="col-6">
+        <form [formGroup]="account" (ngSubmit)="onSubmit()" class="row g-3">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First name: </label>
             <input
-              class="form-check-input"
-              type="radio"
-              id="plan1"
-              formControlName="plan"
-              value="one"
-              checked
+              id="firstName"
+              type="text"
+              formControlName="firstName"
+              required
+              class="form-control"
             />
-            <label class="form-check-label" for="plan1"> Subscription plan A </label>
+            @if (firstName && firstName.invalid && (firstName.dirty || firstName.touched)) {
+              <div class="alert-danger small">
+                @if (firstName.hasError('required')) {
+                  <div>First name is required.</div>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last name: </label>
+            <input
+              id="lastName"
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+              required
+            />
+            @if (lastName && lastName.invalid && (lastName.dirty || lastName.touched)) {
+              <div class="alert-danger small">
+                @if (lastName.hasError('required')) {
+                  Last name is required.
+                }
+              </div>
+            }
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email: </label>
+            <input id="email" type="text" class="form-control" formControlName="email" required />
+            @if (email && email.invalid && (email.dirty || email.touched)) {
+              <div class="alert-danger small">
+                @if (email.hasError('required')) {
+                  <div>Email is required.</div>
+                }
+                @if (email.hasError('email')) {
+                  <div>Email is invalid.</div>
+                }
+              </div>
+            }
           </div>
 
           <div class="mb-3">
@@ -89,74 +76,81 @@
               <input
                 class="form-check-input"
                 type="radio"
-                id="plan2"
+                id="plan1"
                 formControlName="plan"
-                value="two"
+                value="one"
+                checked
               />
-              <label class="form-check-label" for="plan2"> Subscription plan B </label>
+              <label class="form-check-label" for="plan1"> Subscription plan A </label>
             </div>
-          </div>
 
-          <div class="mb-3">
-            <div formArrayName="options">
-              @for (option of options.controls; let i = $index; track option) {
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    [formControlName]="i"
-                    id="{{ i }}"
-                  />
-                  <label class="form-check-label" for="{{ i }}">{{ someOptions[i] }}</label>
-                </div>
-              }
-               @if (options && options.invalid && (options.dirty || options.touched)) {
-                <div class="alert-danger small">
-                  @if (options.hasError('required')) {
-                    <div>Options are required.</div>
-                  }
-                </div>
-              }
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="plan2"
+                  formControlName="plan"
+                  value="two"
+                />
+                <label class="form-check-label" for="plan2"> Subscription plan B </label>
+              </div>
             </div>
-          </div>
 
-          <div class="mb-3">
-            <label for="prices">Choose a an price:</label>
-            <select formControlName="prices" id="prices" class="form-select">
-              @for (price of planOption; track price) {
-                <option [value]="price">{{ price }}</option>
+            <div class="mb-3">
+              <div formArrayName="options">
+                @for (option of options.controls; let i = $index; track option) {
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [formControlName]="i"
+                      id="{{ i }}"
+                    />
+                    <label class="form-check-label" for="{{ i }}">{{ someOptions[i] }}</label>
+                  </div>
+                }
+                @if (options && options.invalid && (options.dirty || options.touched)) {
+                  <div class="alert-danger small">
+                    @if (options.hasError('required')) {
+                      <div>Options are required.</div>
+                    }
+                  </div>
+                }
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="prices">Choose a an price:</label>
+              <select formControlName="prices" id="prices" class="form-select">
+                @for (price of planOption; track price) {
+                  <option [value]="price">{{ price }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <p>Form Status: {{ account.status }}</p>
+            </div>
+
+            <button type="submit" [disabled]="account.invalid" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-6">
+        @if (profile$()) {
+          <div class="detail">
+            <code class="code">
+              @for (subscription of profile$() | keyvalue; track subscription.key) {
+                <span>{{ subscription.key }}: {{ subscription.value }}</span>
               }
-            </select>
+            </code>
           </div>
-
-          <div class="mb-3">
-            <p>Form Status: {{ account.status }}</p>
-          </div>
-
-          <button type="submit" [disabled]="account.invalid" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+        }
+      </div>
     </div>
-
-    <div class="col-6">
-        @if (profile$()){
-  <div class="detail">
-  
-
-  
-     <code class="code">
-      @for (subscription of profile$() | keyvalue; track subscription.key) {
-      
-         
-            <span>{{ subscription.key }}: {{ subscription.value }}</span> 
-     
-    
-      }
-      </code>
-      </div> 
-    } 
-    </div>
- 
   </div>
-</div>
 </div>
