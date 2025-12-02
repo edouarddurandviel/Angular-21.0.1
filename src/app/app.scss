@@ -1,6 +1,5 @@
 @use '../_styles/contants' as app;
 
-
 html {
   font-family:
     Roboto,
@@ -11,7 +10,6 @@ html {
     Lucida Grande,
     sans-serif;
 }
-
 
 .book-collection {
   .table {
@@ -32,9 +30,9 @@ html {
 }
 
 .book-list {
-   width: 100%;
+  width: 100%;
   .table {
-      width: 100%;
+    width: 100%;
 
     &-id {
       font-size: 11px;

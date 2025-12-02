@@ -20,7 +20,6 @@ import { KeyValuePipe } from '@angular/common';
   styleUrl: './account.component.scss',
 })
 export class Account implements OnInit {
-
   profile$ = signal<Subscription | null>(null);
   loading$ = signal(false);
   error$ = signal<string | null>(null);
@@ -43,7 +42,7 @@ export class Account implements OnInit {
   account = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.email, Validators.required]),
     plan: new FormControl('', [Validators.required]),
     options: new FormArray(this.someOptions.map((o) => new FormControl(false))),
     prices: new FormControl(''),
@@ -73,7 +72,7 @@ export class Account implements OnInit {
 
     // For demo purpose, the "Action From user interaction with the page"
     // Only sends data to the presentation view
-    this.profile$.set(subscription)
+    this.profile$.set(subscription);
     this.loading$.set(true);
     this.error$.set(null);
   }

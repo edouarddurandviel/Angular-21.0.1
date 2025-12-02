@@ -11,7 +11,7 @@ export type Subscription = {
 };
 
 export interface SubscriptionData {
-  data: Subscription
+  data: Subscription;
 }
 
 export interface SubscriptionService {

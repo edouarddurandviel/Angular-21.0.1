@@ -1,15 +1,13 @@
 <header class="header">
- 
   <h4 [ngStyle]="inlineStyle" customsEvent>Angular SPA codebase</h4>
-  <hr/>
+  <hr />
   <app-button route="/account" (alert)="getAlertContent($event)" (data)="getDataObject($event)" />
-  <hr/>
- 
-    @if (loaded) {
-      <div>Angular version 21.0.1 demonstration</div>
-      @for (tag of tags; let i = $index; track tag) {
-        <div class="tags tags_{{ i }}">{{ tag }}</div>
-      }
-    }
+  <hr />
 
+  @if (loaded) {
+    <div>Angular version 21.0.1 demonstration</div>
+    @for (tag of tags; let i = $index; track tag) {
+      <div class="tags tags_{{ i }}">{{ tag }}</div>
+    }
+  }
 </header>
