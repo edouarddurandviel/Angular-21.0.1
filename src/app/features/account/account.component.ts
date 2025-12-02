@@ -47,6 +47,7 @@ export class Account implements OnInit {
     options: new FormArray(this.someOptions.map((o) => new FormControl(false))),
     prices: new FormControl(''),
   });
+  
   get firstName() {
     return this.account.get('firstName');
   }

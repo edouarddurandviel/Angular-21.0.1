@@ -5,8 +5,8 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-menu',
   imports: [],
-  templateUrl: './menu.html',
-  styleUrl: './menu.scss',
+  templateUrl: './menu.component.html',
+  styleUrl: './menu.component.scss',
 })
 export class Menu {
   currentRoute = '';

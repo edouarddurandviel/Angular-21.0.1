@@ -6,8 +6,8 @@ import { customsEvent } from '../../shared/directives/customsEvent';
 @Component({
   selector: 'app-header',
   imports: [Button, NgStyle, customsEvent],
-  templateUrl: './header.html',
-  styleUrl: './header.scss',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
 })
 export class Header {
   inlineStyle: Record<string, string> = {};
