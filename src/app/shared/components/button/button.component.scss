@@ -1,0 +1,16 @@
+@use '../../../../_styles/contants' as button;
+
+.btn_special {
+  border: none;
+  background-color: button.$french-violet;
+  color: #fff;
+  outline: none;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: button.$hot-red;
+  }
+}

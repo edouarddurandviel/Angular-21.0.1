@@ -1,0 +1,15 @@
+@use '../../../../_styles/contants' as detail;
+
+.account {
+  &_detail {
+    &-container {
+      min-height: 200px;
+    }
+
+    &-spinner {
+      min-height: 200px;
+      background-color: oklch(98.606% 0.07391 107.713);
+      @include detail.horizontal-align;
+    }
+  }
+}

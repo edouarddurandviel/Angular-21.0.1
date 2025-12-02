@@ -1,0 +1,9 @@
+@use '../../../_styles/contants' as footer;
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: footer.$electric-violet;
+  color: #fff;
+  @include footer.horizontal-align;
+}

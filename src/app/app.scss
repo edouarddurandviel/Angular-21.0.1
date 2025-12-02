@@ -1,0 +1,46 @@
+@use '../_styles/contants' as app;
+
+
+html {
+  font-family:
+    Roboto,
+    Helvetica Neue Light,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    Lucida Grande,
+    sans-serif;
+}
+
+
+.book-collection {
+  .table {
+    position: releative;
+    width: 100%;
+
+    &-id {
+      font-size: 11px;
+    }
+
+    .empty {
+      text-align: center !important;
+      padding: 30px;
+      color: oklch(62.341% 0.00007 271.152) !important;
+      font-size: 16px;
+    }
+  }
+}
+
+.book-list {
+   width: 100%;
+  .table {
+      width: 100%;
+
+    &-id {
+      font-size: 11px;
+    }
+  }
+}
+.table_number {
+  font-size: 11px;
+}

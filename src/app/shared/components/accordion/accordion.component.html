@@ -1,0 +1,14 @@
+<div class="accordion">
+  @for (item of items; track item) {
+    <div class="accordion-item">
+      <button class="accordion-header" (click)="toggle(item)">
+        <span>{{ item.title }}</span>
+        <span class="arrow" [class.open]="item.open"></span>
+      </button>
+
+      <div class="accordion-body" [class.open]="item.open">
+        <p>{{ item.content }}</p>
+      </div>
+    </div>
+  }
+</div>

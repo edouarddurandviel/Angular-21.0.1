@@ -1,0 +1,36 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Author</th>
+      <th scope="col">Title</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  @if (books) {
+    <tbody>
+      @for (book of books; track book.id) {
+        <tr>
+          <th scope="row">{{ book.id }}</th>
+          <td>{{ book.volumeInfo.authors }}</td>
+          <td>{{ book.volumeInfo.title }}</td>
+          <td>
+            <button
+              (click)="remove.emit(book.id)"
+              data-test="remove-button"
+              class="btn btn-primary btn-sm"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      }
+      @if (books.length === 0) {
+        <tr>
+          <td colspan="4" class="empty">empty</td>
+        </tr>
+      }
+    </tbody>
+  }
+</table>

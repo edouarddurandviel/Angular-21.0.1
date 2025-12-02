@@ -1,0 +1,18 @@
+@use '../../../_styles/contants' as header;
+
+
+.items {
+  float: left;
+  display: inline;
+  width: auto;
+  margin-right: 10px;
+}
+
+.header {
+  color: white;
+}
+
+.active {
+  color: header.$primary;
+  font-weight: bold;
+}

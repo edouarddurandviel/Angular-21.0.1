@@ -1,0 +1,46 @@
+<div class="alert alert-primary" role="alert">
+  Detailed list. Retreive data using <strong>@ngrx/store</strong> state management.
+</div>
+
+<div class="account_detail-container">
+  @if (store.loading()) {
+    <div class="account_detail-spinner">Loading...</div>
+  }
+  @if (store.post(); as post) {
+    <ul class="account_detail-list">
+      <li>
+        accountdetails works! account page data: <strong>{{ post.id }}</strong> defined in route
+      </li>
+      <li>accountdetails works! this userId data from: {{ post.userId }} directly from params</li>
+      <li>accountdetails works! this userId data from: {{ post.title }} directly from params</li>
+      <li>accountdetails works! this userId data from: {{ post.body }} directly from params</li>
+    </ul>
+  }
+</div>
+
+<div class="alert alert-primary" role="alert">
+  Accordion block. Implemented with <strong>@ng-bootstrap/ng-bootstrap</strong>.
+</div>
+
+<div ngbAccordion>
+  <div ngbAccordionItem>
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>First</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>Content for the first item</ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-3"></div>
+<div class="mb-3"></div>
+
+@if (items; as items) {
+  <div class="alert alert-primary" role="alert">
+    Accordion block. <strong>Custom made with @angular</strong> component and css keyframes.
+  </div>
+  <app-accordion [items]="items"></app-accordion>
+}
