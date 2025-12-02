@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from './layout/header/header';
-import { Footer } from './layout/footer/footer';
-import { Menu } from './layout/menu/menu';
+import { Header } from './layout/header/header.component';
+import { Footer } from './layout/footer/footer.component';
+import { Menu } from './layout/menu/menu.component';
 
 @Component({
   selector: 'app-root',
