@@ -6,7 +6,6 @@ import { GoogleBooksService } from './services';
 import { BookListComponent } from './components/book-list-component';
 import { BookCollectionComponent } from './components/book-collection.component';
 import { AsyncPipe } from '@angular/common';
-import { Book } from './model';
 
 @Component({
   selector: 'app-root',

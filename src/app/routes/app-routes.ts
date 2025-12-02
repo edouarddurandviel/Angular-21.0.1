@@ -1,5 +1,5 @@
 import { ResolveFn, Routes } from '@angular/router';
-import { Home } from '../features/home';
+import { Home } from '../features/home/home.component';
 import { Account } from '../features/account/account.component';
 import { BookComponent } from '../features/books/book.component';
 import { Notfound } from '../pages/notfound/notfound.component';
@@ -50,8 +50,8 @@ export const routes: Routes = [
     path: 'dashboard',
     loadComponent: () => {
       return isPremium
-        ? import('../features/dashbord').then((p) => p.Index)
-        : import('../features/dashbord').then((p) => p.Index);
+        ? import('../features/dashbord/dashboard.component').then((p) => p.DashboardComponent)
+        : import('../features/dashbord/dashboard.component').then((p) => p.DashboardComponent);
     },
     title: 'Administration dashbord',
   },

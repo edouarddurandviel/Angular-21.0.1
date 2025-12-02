@@ -9,6 +9,5 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
-, "src/app/features/books/components/book-collection.componentts"  ]
+    "src/**/*.ts"]
 }

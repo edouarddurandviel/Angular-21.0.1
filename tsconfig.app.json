@@ -6,12 +6,12 @@
     "outDir": "./out-tsc/app",
     "types": [],
     "paths": {
-      "@components/*" : ["./src/app/shared/components/*"],
+      "@shared/*" : ["./src/app/shared/*"],
     }
   },
   "include": [
-    "src/**/*.ts"
-, "src/app/features/books/components/book-collection.componentts"  ],
+    "src/**/*.ts",
+  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

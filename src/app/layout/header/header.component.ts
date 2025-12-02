@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NgStyle } from '@angular/common';
-import { Button } from '../../shared/components/button/button.component';
-import { customsEvent } from '../../shared/directives/customsEvent';
+import { customsEvent } from '@shared/directives/customsEvent';
+import { Button } from '@shared/components/button/button.component';
+
 
 @Component({
   selector: 'app-header',
