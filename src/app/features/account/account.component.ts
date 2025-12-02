@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   EmailValidator,
   FormArray,
@@ -9,21 +9,21 @@ import {
 } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import * as SubscriptionSelector from '../../state/account/selector';
-import * as SubscriptionActions from '../../state/account/actions';
-import { Subscription } from '../../state/account/interfaces';
+import { Subscription } from './signal/account.types';
+import { KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-account',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, KeyValuePipe],
   providers: [Store],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
 })
 export class Account implements OnInit {
-  private store = inject(Store);
 
-  readonly subscription$ = this.store.selectSignal(SubscriptionSelector.selectSubscriptionFeature);
+  profile$ = signal<Subscription | null>(null);
+  loading$ = signal(false);
+  error$ = signal<string | null>(null);
 
   ngOnInit() {
     this.account.patchValue({
@@ -73,6 +73,8 @@ export class Account implements OnInit {
 
     // For demo purpose, the "Action From user interaction with the page"
     // Only sends data to the presentation view
-    this.store.dispatch(SubscriptionActions.postSubscription({ subscription }));
+    this.profile$.set(subscription)
+    this.loading$.set(true);
+    this.error$.set(null);
   }
 }

@@ -114,18 +114,25 @@
       </form>
     </div>
 
-    <!-- <div class="col-6">
-      @if (subscription$(); as subscription) {
-        <code>{{ subscription.email }}</code>
-        <div class="detail">
-          <p>{{ subscription.firstName }}</p>
-          <p>{{ subscription.data.lastName }}</p>
-          <p>{{ subscription.email }}</p>
-          <p>{{ subscription.plan }}</p>
-          <p>{{ subscription.prices }}</p>
-        </div>
+    <div class="col-6">
+        @if (profile$()){
+  <div class="detail">
+  
+
+  
+     <code class="code">
+      @for (subscription of profile$() | keyvalue; track subscription.key) {
+      
+         
+            <span>{{ subscription.key }}: {{ subscription.value }}</span> 
+     
+    
       }
-    </div> -->
+      </code>
+      </div> 
+    } 
+    </div>
+ 
   </div>
 </div>
 </div>

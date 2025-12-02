@@ -1,3 +1,15 @@
 .alert-danger {
   color: red;
 }
+
+.code{
+  padding: 10px;
+  display: block;
+  float: left;
+  background-color: oklch(95.815% 0.00011 271.152); 
+  border-radius: 12px;
+
+  span{
+    display: block
+  }
+}
