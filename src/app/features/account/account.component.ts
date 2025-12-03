@@ -47,7 +47,7 @@ export class Account implements OnInit {
     options: new FormArray(this.someOptions.map((o) => new FormControl(false))),
     prices: new FormControl(''),
   });
-  
+
   get firstName() {
     return this.account.get('firstName');
   }
@@ -76,5 +76,12 @@ export class Account implements OnInit {
     this.profile$.set(subscription);
     this.loading$.set(true);
     this.error$.set(null);
+
+    this.setSessionToken(subscription, { token: 'qsdfd546464qsdf4df' });
+  }
+
+  private setSessionToken(subscription: any, token: any) {
+    localStorage.setItem('session', JSON.stringify(subscription));
+    sessionStorage.setItem('session', JSON.stringify(token));
   }
 }

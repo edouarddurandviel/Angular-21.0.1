@@ -3,7 +3,6 @@ import { NgStyle } from '@angular/common';
 import { customsEvent } from '@shared/directives/customsEvent';
 import { Button } from '@shared/components/button/button.component';
 
-
 @Component({
   selector: 'app-header',
   imports: [Button, NgStyle, customsEvent],

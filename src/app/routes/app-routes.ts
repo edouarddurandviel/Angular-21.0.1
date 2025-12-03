@@ -1,10 +1,11 @@
-import { ResolveFn, Routes } from '@angular/router';
-import { Home } from '../features/home/home.component';
+import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot, Routes } from '@angular/router';
+import { HomeComponent, HomeContent } from '../features/home/home.component';
 import { Account } from '../features/account/account.component';
 import { BookComponent } from '../features/books/book.component';
 import { Notfound } from '../pages/notfound/notfound.component';
 import { CreateAccountComponent } from '../features/account/create/create.account.component';
 import { AccountdetailsComponent } from '../features/account/details/account-details.component';
+import { AuthGuard } from '../core/guards/auth-guard';
 
 const dataResolver: ResolveFn<Object> = (route) => {
   return {
@@ -14,13 +15,33 @@ const dataResolver: ResolveFn<Object> = (route) => {
   };
 };
 
+const homeDataResolver: ResolveFn<HomeContent> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot,
+) => {
+  return {
+    presentation: 'Presentation description',
+    introduction: 'Introduction: describe services',
+    description: 'Some detailed description',
+  };
+};
+
 const isPremium = true;
 
 export const routes: Routes = [
   {
     path: '',
-    component: Home,
+    component: HomeComponent,
     title: 'Home',
+    resolve: {
+      homeData: homeDataResolver,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'login',
+    component: HomeComponent,
+    title: 'Login home',
   },
   {
     path: 'account',
