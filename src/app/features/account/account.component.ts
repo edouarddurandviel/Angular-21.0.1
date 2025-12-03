@@ -1,15 +1,13 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import {
-  EmailValidator,
   FormArray,
-  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Subscription } from './signal/account.types';
+import { Subscription } from './account.types';
 import { KeyValuePipe } from '@angular/common';
 
 @Component({
