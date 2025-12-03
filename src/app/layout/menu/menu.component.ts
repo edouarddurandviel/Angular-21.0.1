@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../../core/services/auth.services';
 
 @Component({
   selector: 'app-menu',
-  imports: [],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
 export class Menu {
   currentRoute = '';
+    private AuthService = inject(AuthService);
 
   menu = [
     {
@@ -40,5 +41,10 @@ export class Menu {
 
   goTo(path: string) {
     this.router.navigate([path]);
+  }
+
+  logout(){
+      this.AuthService.logout()
+      this.router.navigateByUrl('/');
   }
 }

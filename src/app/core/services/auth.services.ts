@@ -40,21 +40,11 @@ export class AuthService {
     return null;
   }
 
-  private setStorageItem(key: string, value: ConnectedUser): void {
-    localStorage.setItem(key, JSON.stringify(value));
-    sessionStorage.setItem(key, JSON.stringify(value.token));
+  public async logout() {
+    this.deleteStorageItem('session')
   }
 
-  private setUserSession(user: ConnectedUser): void {
-    if (user.token) {
-      this.setStorageItem(this.STORAGE_KEY, user);
-      this.isAuthenticated = true;
-    } else {
-      this.isAuthenticated = false;
-    }
-  }
-
-  private getStorageItem(key: string) {
+   private getStorageItem(key: string) {
     const storedUser = localStorage.getItem(key);
     const savedToken = sessionStorage.getItem(key);
 
@@ -70,4 +60,25 @@ export class AuthService {
     }
     return null;
   }
+
+  private setStorageItem(key: string, value: ConnectedUser): void {
+    localStorage.setItem(key, JSON.stringify(value));
+    sessionStorage.setItem(key, JSON.stringify(value.token));
+  }
+
+  private deleteStorageItem(key: string): void {
+    localStorage.removeItem(key);
+    sessionStorage.removeItem(key);
+  }
+
+  private setUserSession(user: ConnectedUser): void {
+    if (user.token) {
+      this.setStorageItem(this.STORAGE_KEY, user);
+      this.isAuthenticated = true;
+    } else {
+      this.isAuthenticated = false;
+    }
+  }
+
+ 
 }

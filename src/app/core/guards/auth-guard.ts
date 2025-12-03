@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { inject } from '@angular/core';
-import { AuthService } from '../services/auth-guard.services';
+import { AuthService } from '../services/auth.services';
 
 export const AuthGuard: CanActivateFn = async (
   route: ActivatedRouteSnapshot,

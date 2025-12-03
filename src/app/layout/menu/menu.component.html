@@ -1,9 +1,4 @@
 <hr />
-<a
-  href="#"
-  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-  >home</a
->
 <ul class="nav nav-pills flex-column mb-auto">
   @for (link of menu; track link) {
     @if (link.path) {
@@ -14,5 +9,7 @@
       </li>
     }
   }
+  <hr />
+   <li class="nav-item" (click)="logout()">Logout</li>
 </ul>
 <hr />
