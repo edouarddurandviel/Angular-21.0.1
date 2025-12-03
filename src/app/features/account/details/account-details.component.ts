@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, inject, OnDestroy, OnInit } from '@angular/core';
 import { AccountDetailStore } from './signal/account-details.store';
 import {
   NgbAccordionBody,
@@ -9,6 +9,20 @@ import {
   NgbAccordionDirective,
 } from '@ng-bootstrap/ng-bootstrap';
 import { AccordionComponent } from '@shared/components/accordion/accordion.component';
+import { ActivatedRoute } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+type content = {
+   title: string, 
+        content: string 
+}
+
+export type AccountDetails =  {
+    id: number,
+    title: string,
+    description: string,
+    content: content[]
+  }
 
 @Component({
   selector: 'app-account-details',
@@ -26,16 +40,11 @@ import { AccordionComponent } from '@shared/components/accordion/accordion.compo
   templateUrl: './account-details.component.html',
   styleUrl: './account-details.component.scss',
 })
-export class AccountdetailsComponent implements OnInit, OnDestroy {
+export class AccountdetailsComponent {
   store = inject(AccountDetailStore);
 
-  readonly items = [
-    { title: 'Section 1', content: 'Content for section 1' },
-    { title: 'Section 2', content: 'Content for section 2' },
-    { title: 'Section 3', content: 'Content for section 3' },
-  ];
+  private route = inject(ActivatedRoute);
+  private data = toSignal(this.route.data);
+  content = computed(() => this.data()?.['userData'] as AccountDetails | undefined);
 
-  ngOnInit() {}
-
-  ngOnDestroy() {}
 }
