@@ -10,7 +10,7 @@ import { AuthService } from '../../core/services/auth.services';
 })
 export class Menu {
   currentRoute = '';
-    private AuthService = inject(AuthService);
+  private AuthService = inject(AuthService);
 
   menu = [
     {
@@ -43,8 +43,8 @@ export class Menu {
     this.router.navigate([path]);
   }
 
-  logout(){
-      this.AuthService.logout()
-      this.router.navigateByUrl('/');
+  logout() {
+    this.AuthService.logout();
+    this.router.navigateByUrl('/');
   }
 }

@@ -8,7 +8,7 @@ import { BookCollectionComponent } from './components/book-collection.component'
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-book',
   templateUrl: './book.component.html',
   imports: [BookListComponent, BookCollectionComponent, AsyncPipe],
 })
@@ -32,6 +32,10 @@ export class BookComponent implements OnInit {
 
     this.booksService
       .getBooks()
-      .subscribe((books) => this.store.dispatch(BooksApiActions.retrievedBookList({ books })));
+      .subscribe(
+        (books) => this.store.dispatch(
+          BooksApiActions.retrievedBookList({ books })
+        )
+      );
   }
 }

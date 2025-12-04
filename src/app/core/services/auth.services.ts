@@ -41,10 +41,10 @@ export class AuthService {
   }
 
   public async logout() {
-    this.deleteStorageItem('session')
+    this.deleteStorageItem('session');
   }
 
-   private getStorageItem(key: string) {
+  private getStorageItem(key: string) {
     const storedUser = localStorage.getItem(key);
     const savedToken = sessionStorage.getItem(key);
 
@@ -79,6 +79,4 @@ export class AuthService {
       this.isAuthenticated = false;
     }
   }
-
- 
 }

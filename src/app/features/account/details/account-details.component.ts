@@ -13,16 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 type content = {
-   title: string, 
-        content: string 
-}
+  title: string;
+  content: string;
+};
 
-export type AccountDetails =  {
-    id: number,
-    title: string,
-    description: string,
-    content: content[]
-  }
+export type AccountDetails = {
+  id: number;
+  title: string;
+  description: string;
+  content: content[];
+};
 
 @Component({
   selector: 'app-account-details',
@@ -46,5 +46,4 @@ export class AccountdetailsComponent {
   private route = inject(ActivatedRoute);
   private data = toSignal(this.route.data);
   content = computed(() => this.data()?.['userData'] as AccountDetails | undefined);
-
 }
