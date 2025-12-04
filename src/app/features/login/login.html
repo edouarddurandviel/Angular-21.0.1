@@ -36,13 +36,15 @@
           </div>
 
           <div class="mb-3">
-            <label for="role" class="form-label">Role:</label>
-            <select [field]="loginForm.roleId" id="role" class="form-select form-control">
-              <option value="">Select a role</option>
-              @for (role of rolesData; track role.id) {
-                <option [value]="role.id">{{ role.name }}</option>
-              }
-            </select>
+            @if (rolesData) {
+              <label for="role" class="form-label">Role:</label>
+              <select [field]="loginForm.roleId" id="role" class="form-select form-control">
+                <option value="">Select a role</option>
+                @for (role of rolesData; track role.id) {
+                  <option [value]="role.id">{{ role.name }}</option>
+                }
+              </select>
+            }
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>

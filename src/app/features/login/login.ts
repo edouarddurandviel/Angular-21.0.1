@@ -25,19 +25,17 @@ interface LoginData {
 export class Login {
   // forms with signal strategy
   /////////////////////////////
-
-  router = inject(Router)
+  router = inject(Router);
 
   loginModel = signal<LoginData>({
     email: '',
     password: '',
-    roleId: ''
+    roleId: '',
   });
 
   loginForm = form(this.loginModel, (schemaPath) => {
     required(schemaPath.email, { message: 'Email is required' });
     email(schemaPath.email, { message: 'Enter a valid email address' });
-
     required(schemaPath.password, { message: 'Password is required' });
   });
 
@@ -53,7 +51,7 @@ export class Login {
 
     // e.g. await this.authService.login(credentials);
     this.#setSessionToken(credentials, { token: 'qsdfd546464qsdf4df' });
-     this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 
   #setSessionToken(subscription: any, token: any) {

@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './account.component.scss',
 })
 export class Account implements OnInit {
-  router = inject(Router)
+  router = inject(Router);
   profile$ = signal<Subscription | null>(null);
   loading$ = signal(false);
   error$ = signal<string | null>(null);
@@ -73,7 +73,7 @@ export class Account implements OnInit {
     this.error$.set(null);
 
     this.#setSessionToken(subscription, { token: 'qsdfd546464qsdf4df' });
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 
   #setSessionToken(subscription: any, token: any) {
