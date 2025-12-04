@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   selector: 'app-account',
   imports: [ReactiveFormsModule, KeyValuePipe],
   providers: [Store],
-  templateUrl: './account.component.html',
-  styleUrl: './account.component.scss',
+  templateUrl: './account.html',
+  styleUrl: './account.scss',
 })
 export class Account implements OnInit {
   router = inject(Router);

@@ -1,15 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectBookCollection, selectBooks } from './selectors';
-import { BooksActions, BooksApiActions } from './actions';
-import { GoogleBooksService } from './services';
-import { BookListComponent } from './components/book-list-component';
-import { BookCollectionComponent } from './components/book-collection.component';
+import { selectBookCollection, selectBooks } from './state/selectors'
+import { BooksActions, BooksApiActions } from './state/actions';
+import { GoogleBooksService } from './services/services';
+import { BookListComponent } from './components/list/book-list-component';
+import { BookCollectionComponent } from './components/collection/book-collection.component';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
-  templateUrl: './book.component.html',
+  templateUrl: './book.html',
   imports: [BookListComponent, BookCollectionComponent, AsyncPipe],
 })
 export class BookComponent implements OnInit {

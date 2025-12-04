@@ -11,8 +11,8 @@ export type HomeContent = {
 @Component({
   selector: 'app-home',
   imports: [],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './home.html',
+  styleUrl: './home.scss',
 })
 export class HomeComponent {
   private route = inject(ActivatedRoute);

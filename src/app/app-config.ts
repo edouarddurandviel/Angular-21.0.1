@@ -3,14 +3,14 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './routes/app-routes';
 import { provideStore } from '@ngrx/store';
 import { subscriptionReducer } from './state/account/reducer';
-import { booksReducer } from './features/books/reducer';
-import { collectionReducer } from './features/books/collection';
+import { booksReducer } from './features/books/state/reducer';
+import { collectionReducer } from './features/books/state/collection';
 
 export const appConfig: ApplicationConfig = {
   providers: [
