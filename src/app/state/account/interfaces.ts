@@ -9,9 +9,12 @@ export type Subscription = {
   plan: string;
   prices: string;
 };
-
 export interface SubscriptionData {
   data: Subscription;
+}
+export interface SubscriptionState extends SubscriptionData {
+  loading: boolean;
+  error: any;
 }
 
 export interface SubscriptionService {
@@ -21,11 +24,6 @@ export interface SubscriptionService {
 }
 
 export interface EntitySubscriptionState extends EntityState<SubscriptionData> {
-  loading: boolean;
-  error: any;
-}
-
-export interface SubscriptionState extends SubscriptionData {
   loading: boolean;
   error: any;
 }

@@ -9,6 +9,7 @@ import {
   AccountdetailsComponent,
 } from '../features/account/details/account-details.component';
 import { AuthGuard } from '../core/guards/auth-guard';
+import { Login } from '../features/login/login';
 
 const dataResolver: ResolveFn<AccountDetails> = (
   route: ActivatedRouteSnapshot,
@@ -51,23 +52,26 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: HomeComponent,
-    title: 'Login home',
+    component: Login,
+    title: 'Login',
   },
   {
     path: 'account',
     component: Account,
     title: 'Account',
+    canActivate: [AuthGuard],
   },
   {
     path: 'books',
     component: BookComponent,
     title: 'Books',
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-account',
     component: CreateAccountComponent,
     title: 'Create account',
+    canActivate: [AuthGuard],
   },
   {
     path: 'account-details/:id',
@@ -77,6 +81,7 @@ export const routes: Routes = [
       userData: dataResolver,
     },
     data: { accountPageData: 'Account page detail for page!!!!' },
+    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
@@ -86,10 +91,16 @@ export const routes: Routes = [
         : import('../features/dashbord/dashboard.component').then((p) => p.DashboardComponent);
     },
     title: 'Administration dashbord',
+    canActivate: [AuthGuard],
   },
   {
     path: 'redirect',
     redirectTo: '',
+    canActivate: [AuthGuard],
   },
-  { path: '**', component: Notfound },
+  {
+    path: '**',
+    component: Notfound,
+    canActivate: [AuthGuard],
+  },
 ];

@@ -11,13 +11,13 @@ export class AuthService {
 
   public async isLoggedIn() {
     const user: any = await this.getStorageItem('session');
-
-    if (user && user.token) {
-      return user;
-    } else {
-      return null;
+    let response
+    while (user && user.token) {
+      response = true;
+      break;
     }
-  }
+    return response
+}
 
   public async login(email: string, password: string) {
     // demo purpose
@@ -54,8 +54,8 @@ export class AuthService {
       return {
         token: savedT,
         email: storedU.email,
-        userId: storedU.userId,
-        name: storedU.name,
+        // userId: storedU.userId,
+        // name: storedU.name,
       };
     }
     return null;

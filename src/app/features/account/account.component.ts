@@ -1,9 +1,10 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from './account.types';
 import { KeyValuePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -13,6 +14,7 @@ import { KeyValuePipe } from '@angular/common';
   styleUrl: './account.component.scss',
 })
 export class Account implements OnInit {
+  router = inject(Router)
   profile$ = signal<Subscription | null>(null);
   loading$ = signal(false);
   error$ = signal<string | null>(null);
@@ -70,10 +72,11 @@ export class Account implements OnInit {
     this.loading$.set(true);
     this.error$.set(null);
 
-    this.setSessionToken(subscription, { token: 'qsdfd546464qsdf4df' });
+    this.#setSessionToken(subscription, { token: 'qsdfd546464qsdf4df' });
+    this.router.navigate(["/"]);
   }
 
-  private setSessionToken(subscription: any, token: any) {
+  #setSessionToken(subscription: any, token: any) {
     localStorage.setItem('session', JSON.stringify(subscription));
     sessionStorage.setItem('session', JSON.stringify(token));
   }

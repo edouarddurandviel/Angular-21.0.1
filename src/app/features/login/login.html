@@ -1,0 +1,53 @@
+<div class="d-flex flex-column">
+  <h1>Login page</h1>
+  <div class="alert alert-primary" role="alert">Form with signals</div>
+
+  <div class="grid">
+    <div class="row">
+      <div class="col-6">
+        <form (submit)="onSubmit($event)" class="row g-3">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email: </label>
+            <input id="email" type="email" class="form-control" [field]="loginForm.email" />
+            @if (loginForm.email().touched() && loginForm.email().invalid()) {
+              <div class="alert-danger small">
+                @for (error of loginForm.email().errors(); track error) {
+                  <li>{{ error.message }}</li>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password: </label>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              [field]="loginForm.password"
+            />
+            @if (loginForm.password().touched() && loginForm.password().invalid()) {
+              <div class="alert-danger small">
+                @for (error of loginForm.password().errors(); track error) {
+                  <li>{{ error.message }}</li>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="role" class="form-label">Role:</label>
+            <select [field]="loginForm.roleId" id="role" class="form-select form-control">
+              <option value="">Select a role</option>
+              @for (role of rolesData; track role.id) {
+                <option [value]="role.id">{{ role.name }}</option>
+              }
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

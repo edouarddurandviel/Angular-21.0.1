@@ -18,6 +18,6 @@ export const AuthGuard: CanActivateFn = async (
   if (isConnected) {
     return true;
   } else {
-    return router.createUrlTree(['/account']);
+    return router.navigate(['/login']);
   }
 };
