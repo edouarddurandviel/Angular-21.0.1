@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PhotoListState } from './state';
 import * as Selectors from './state/selectors';
 import * as UnsplashActions from './state/actions';
 import { AsyncPipe, JsonPipe } from '@angular/common';
@@ -10,7 +9,7 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
   selector: 'app-unsplash',
   imports: [AsyncPipe, JsonPipe],
   templateUrl: './unsplash.html',
-  styleUrl: './unsplash.scss',
+  styleUrls: ['./unsplash.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnsplashListComponent implements OnInit {
