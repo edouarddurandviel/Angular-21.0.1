@@ -4,7 +4,9 @@
 
 <div class="account_detail-container">
   @if (store.loading()) {
-    <div class="account_detail-spinner">Loading...</div>
+    <div class="spinner-grow text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   }
   @if (store.post(); as post) {
     <ul class="account_detail-list">
