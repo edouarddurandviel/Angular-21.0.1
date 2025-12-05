@@ -2,15 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface Photo {
-  id: string;
-  url: string;
-  name: string;
-}
 
-interface PhotoDetail extends Photo {
-  thumbnail: string[];
-}
 
 @Injectable({ providedIn: 'root' })
 export class UnsplashService {
@@ -18,8 +10,8 @@ export class UnsplashService {
   private apiUrl = 'https://api.unsplash.com';
   private ACCESS_KEY = 'HfS6VON2Xod6qiCsWaYwt5DgMrKBUxHmaxcLPlSu2ZI';
 
-  searchForPhotos(): Observable<Photo[]> {
-    const result = this.http.get<Photo[]>(`${this.apiUrl}/search/photos?query=sky`, {
+  searchForPhotos(): Observable<any[]> {
+    const result = this.http.get<any[]>(`${this.apiUrl}/search/photos?query=sky`, {
       headers: {
         Authorization: `Client-ID ${this.ACCESS_KEY}`,
       },
@@ -28,20 +20,20 @@ export class UnsplashService {
     return result;
   }
 
-  getOnePhoto(id: string): Observable<Photo> {
-    return this.http.get<Photo>(`${this.apiUrl}/photo/${id}`);
+  getOnePhoto(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/photo/${id}`);
   }
 
   getOnePhotoDetail(id: number) {
-    return this.http.get<PhotoDetail>(`${this.apiUrl}/photo/${id}/detail`);
+    return this.http.get<any>(`${this.apiUrl}/photo/${id}/detail`);
   }
 
-  createOnePhoto(prod: Partial<Photo>): Observable<Photo> {
-    return this.http.post<Photo>(`${this.apiUrl}/photo`, prod);
+  createOnePhoto(prod: Partial<any>): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/photo`, prod);
   }
 
-  updateOnePhoto(id: string, changes: Partial<Photo>): Observable<Photo> {
-    return this.http.put<Photo>(`${this.apiUrl}/photo/${id}`, changes);
+  updateOnePhoto(id: string, changes: Partial<any>): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/photo/${id}`, changes);
   }
 
   deleteOnePhoto(id: string): Observable<{ id: string }> {
