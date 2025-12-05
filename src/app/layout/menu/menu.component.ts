@@ -26,6 +26,10 @@ export class Menu {
       title: 'Books',
     },
     {
+      path: '/unsplash',
+      title: 'Unsplash',
+    },
+    {
       path: '/dashboard',
       title: 'Dashboard',
     },

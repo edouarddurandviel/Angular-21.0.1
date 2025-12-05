@@ -1,7 +1,6 @@
 import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from '@angular/router';
 import { AccountDetails } from '../../features/account/details/account-details.component';
 
-
 export const accountResolver: ResolveFn<AccountDetails> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
@@ -17,8 +16,3 @@ export const accountResolver: ResolveFn<AccountDetails> = (
     ],
   };
 };
-
-
-  
-
-

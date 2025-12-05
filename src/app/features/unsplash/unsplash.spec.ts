@@ -8,9 +8,8 @@ describe('Unsplash', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Unsplash]
-    })
-    .compileComponents();
+      imports: [Unsplash],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Unsplash);
     component = fixture.componentInstance;

@@ -4,14 +4,12 @@ import { Account } from '../features/account/account';
 import { BookComponent } from '../features/books/book';
 import { Notfound } from '../pages/notfound/notfound.component';
 import { CreateAccountComponent } from '../features/account/create/create.account.component';
-import {
-  AccountdetailsComponent,
-} from '../features/account/details/account-details.component';
+import { AccountdetailsComponent } from '../features/account/details/account-details.component';
 import { AuthGuard } from '../core/guards/auth-guard';
 import { Login } from '../features/login/login';
 import { accountResolver } from '../core/resolvers/account.resolver';
 import { homeDataResolver } from '../core/resolvers/home.resolver';
-
+import { UnsplashListComponent } from '../features/unsplash/unsplash';
 
 const isPremium = true;
 
@@ -40,6 +38,12 @@ export const routes: Routes = [
     path: 'books',
     component: BookComponent,
     title: 'Books',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'unsplash',
+    component: UnsplashListComponent,
+    title: 'Unsplash',
     canActivate: [AuthGuard],
   },
   {

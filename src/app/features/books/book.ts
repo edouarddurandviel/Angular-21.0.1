@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectBookCollection, selectBooks } from './state/selectors'
+import { selectBookCollection, selectBooks } from './state/selectors';
 import { BooksActions, BooksApiActions } from './state/actions';
-import { GoogleBooksService } from './services/services';
+import { GoogleBooksService } from './services/google-books';
 import { BookListComponent } from './components/list/book-list-component';
 import { BookCollectionComponent } from './components/collection/book-collection.component';
 import { AsyncPipe } from '@angular/common';
