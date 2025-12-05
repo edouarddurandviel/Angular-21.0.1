@@ -16,12 +16,12 @@ interface PhotoDetail extends Photo {
 export class UnsplashService {
   private http = inject(HttpClient);
   private apiUrl = 'https://api.unsplash.com';
-  private YOUR_ACCESS_KEY = 'HfS6VON2Xod6qiCsWaYwt5DgMrKBUxHmaxcLPlSu2ZI';
+  private ACCESS_KEY = 'HfS6VON2Xod6qiCsWaYwt5DgMrKBUxHmaxcLPlSu2ZI';
 
   searchForPhotos(): Observable<Photo[]> {
-    const result = this.http.get<Photo[]>('https://api.unsplash.com/search/photos?query=sky', {
+    const result = this.http.get<Photo[]>(`${this.apiUrl}/search/photos?query=sky`, {
       headers: {
-        Authorization: `Client-ID ${this.YOUR_ACCESS_KEY}`,
+        Authorization: `Client-ID ${this.ACCESS_KEY}`,
       },
     });
 
