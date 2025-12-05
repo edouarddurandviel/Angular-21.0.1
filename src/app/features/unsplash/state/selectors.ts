@@ -1,10 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { PhotoState } from './reducer';
+import { PhotoListState } from './reducer';
 
 export const featureReadKey = 'unsplash';
 
 // unsplash global feature
-export const selectPhotosState = createFeatureSelector<PhotoState>(featureReadKey);
+export const selectPhotosState = createFeatureSelector<PhotoListState>(featureReadKey);
 
 export const photosSelector = createSelector(selectPhotosState, (state) => state.payload);
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Photo, PhotoState } from './state';
+import { PhotoListState } from './state';
 import * as Selectors from './state/selectors';
 import * as UnsplashActions from './state/actions';
 import { AsyncPipe, JsonPipe } from '@angular/common';

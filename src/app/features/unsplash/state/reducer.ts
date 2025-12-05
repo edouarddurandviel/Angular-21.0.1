@@ -1,20 +1,20 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import * as UnsplashActions from './actions';
 
-export interface Photo {
+export interface PhotoList {
   total: number;
   total_page: number;
   results: any[];
   name: string;
 }
 
-export interface PhotoState {
-  payload: Photo[];
+export interface PhotoListState {
+  payload: PhotoList[];
   loading: boolean;
   error: null;
 }
 
-export const initialState: PhotoState = {
+export const initialState: PhotoListState = {
   payload: [],
   loading: false,
   error: null,

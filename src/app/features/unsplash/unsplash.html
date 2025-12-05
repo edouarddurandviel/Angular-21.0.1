@@ -1,12 +1,16 @@
 <p>unsplash works!</p>
 
+<div class="alert alert-primary" role="alert">
+  Unsplash list. Retreive data using <strong>@ngrx/store</strong> state management.
+</div>
+
 <div>
   <h2>List of photos</h2>
 
   <div class="photo-collection">
     @for (photo of unsplashResults$ | async; track photo.id) {
       <div class="card" style="width: 18rem">
-        <img src="{{ photo.urls.raw }}" class="card-img-top" alt="{{ photo.alt_desctiption }}" />
+        <img src="{{ photo.urls.raw }}" class="card-img-top" alt="{{ photo.alt_desctiption }}" height="200" />
         <div class="card-body">
           @if (photo.description) {
             <h5 class="card-title">{{ photo.description }}</h5>
