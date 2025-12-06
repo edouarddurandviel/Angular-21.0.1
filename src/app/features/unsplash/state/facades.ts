@@ -10,7 +10,7 @@ import {
   ActionCreator,
 } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, Observable, of } from 'rxjs';
+import { catchError, exhaustMap, map, mergeMap, Observable, of } from 'rxjs';
 import { EntityAdapter } from '@ngrx/entity';
 
 @Injectable({ providedIn: 'root' })
@@ -20,7 +20,6 @@ export class StoreFacade {
   select = <T>(selector: Selector<any, T>) => this.store.select(selector);
   dispatch = (action: Action) => this.store.dispatch(action);
 }
-
 
 // entity-actions.ts
 export function createEntityActions<T>(entity: string) {
@@ -117,7 +116,7 @@ export function createEntityEffects<T>(
     load$: createEffect(() =>
       actions$.pipe(
         ofType(actions.load),
-        mergeMap(({ id }) =>
+        exhaustMap(({ id }) =>
           service.load(id).pipe(
             map((data) => actions.loadSuccess({ data })),
             catchError((error) => of(actions.loadFailure({ error }))),
@@ -129,7 +128,7 @@ export function createEntityEffects<T>(
     loadAll$: createEffect(() =>
       actions$.pipe(
         ofType(actions.loadAll),
-        mergeMap(() =>
+        exhaustMap(() =>
           service.loadAll().pipe(
             map((data) => actions.loadSuccess({ data })),
             catchError((error) => of(actions.loadFailure({ error }))),
@@ -141,7 +140,7 @@ export function createEntityEffects<T>(
     create$: createEffect(() =>
       actions$.pipe(
         ofType(actions.create),
-        mergeMap(({ body }) =>
+        exhaustMap(({ body }) =>
           service.create(body).pipe(
             map((data) => actions.createSuccess({ data })),
             catchError((error) => of(actions.createFailure({ error }))),
@@ -153,7 +152,7 @@ export function createEntityEffects<T>(
     update$: createEffect(() =>
       actions$.pipe(
         ofType(actions.update),
-        mergeMap(({ id, changes }) =>
+        exhaustMap(({ id, changes }) =>
           service.update(id, changes).pipe(
             map((data) => actions.updateSuccess({ data })),
             catchError((error) => of(actions.updateFailure({ error }))),
@@ -165,7 +164,7 @@ export function createEntityEffects<T>(
     remove$: createEffect(() =>
       actions$.pipe(
         ofType(actions.remove),
-        mergeMap(({ id }) =>
+        exhaustMap(({ id }) =>
           service.remove(id).pipe(
             map(() => actions.removeSuccess({ id })),
             catchError((error) => of(actions.removeFailure({ error }))),

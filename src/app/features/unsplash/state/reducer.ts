@@ -20,17 +20,36 @@ export const initialState: PhotoListState = {
   error: null,
 };
 
+// create a feature
+// while it is loading return default state otherwise return new one
+// should use EntityAdater setAll()
+
 export const unsplashPhotoReducer = createFeature({
   name: 'unsplash',
   reducer: createReducer(
     initialState,
-    on(UnsplashActions.getAllPhotos, (state) => ({ ...state, loading: true, error: null })),
-    on(UnsplashActions.getAllPhotosSuccess, (state, { payload }) => ({
-      ...state,
-      payload: payload.results,
-      loading: false,
-      error: null,
-    })),
+    on(UnsplashActions.getAllPhotos, (state) => {
+      if (state.loading) {
+        return state;
+      }
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    }),
+    on(UnsplashActions.getAllPhotosSuccess, (state, { payload }) => {
+      if (state.payload === payload) {
+        return state;
+      }
+
+      return {
+        ...state,
+        payload: payload.results,
+        loading: false,
+        error: null,
+      };
+    }),
     on(UnsplashActions.getAllPhotosFailure, (state, { error }) => ({
       ...state,
       loading: false,

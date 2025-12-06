@@ -10,6 +10,8 @@ import { Login } from '../features/login/login';
 import { accountResolver } from '../core/resolvers/account.resolver';
 import { homeDataResolver } from '../core/resolvers/home.resolver';
 import { UnsplashListComponent } from '../features/unsplash/unsplash';
+import { provideEffects } from '@ngrx/effects';
+import { getAllPhotosEffect$ } from '../features/unsplash/state';
 
 const isPremium = true;
 
@@ -45,6 +47,7 @@ export const routes: Routes = [
     component: UnsplashListComponent,
     title: 'Unsplash',
     canActivate: [AuthGuard],
+    providers: [provideEffects({ getAllPhotosEffect$ })],
   },
   {
     path: 'create-account',

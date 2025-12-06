@@ -26,6 +26,5 @@ export const appConfig: ApplicationConfig = {
       collection: collectionReducer,
       unsplash: unsplashPhotoReducer.reducer,
     }),
-    provideEffects({ getAllPhotosEffect$ }),
   ],
 };
