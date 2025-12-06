@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-export const getAllPhotos = createAction('GET_ALL_PHOTOS_REQUEST');
+export const getAllPhotos = createAction('GET_ALL_PHOTOS_REQUEST', props<{ color: string }>());
 export const getAllPhotosSuccess = createAction(
   'GET_ALL_PHOTOS_SUCCESS',
   props<{ payload: any }>(),

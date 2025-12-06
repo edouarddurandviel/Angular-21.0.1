@@ -6,11 +6,20 @@
 
 <div>
   <h2>List of photos</h2>
+  <div class="photo-collection_header">
+    <app-aria-select />
+  </div>
 
   <div class="photo-collection">
     @for (photo of unsplashResults$ | async; track photo.id) {
       <div class="card" style="width: 18rem">
-        <img src="{{ photo.urls.raw }}" class="card-img-top" alt="{{ photo.alt_desctiption }}" height="200" />
+        <img
+          src="{{ photo.urls.raw }}"
+          style="background-image: url({{ photo.urls.raw }})"
+          class="card-img-top photo-collection_thumb"
+          alt="{{ photo.alt_desctiption }}"
+          height="200"
+        />
         <div class="card-body">
           @if (photo.description) {
             <h5 class="card-title">{{ photo.description }}</h5>

@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import * as Selectors from './state/selectors';
 import * as UnsplashActions from './state/actions';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AriaSelectComponent } from '@shared/components/aria-select/aria-select';
 
 @Component({
   selector: 'app-unsplash',
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe, JsonPipe, AriaSelectComponent],
   templateUrl: './unsplash.html',
   styleUrls: ['./unsplash.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,7 +21,7 @@ export class UnsplashListComponent implements OnInit {
   error$ = this.store.select(Selectors.photosErrorSelector);
 
   ngOnInit() {
-    this.store.dispatch(UnsplashActions.getAllPhotos());
+    this.store.dispatch(UnsplashActions.getAllPhotos({ color: 'yellow' }));
 
     this.unsplashResults$.subscribe((e) => console.log(e));
   }

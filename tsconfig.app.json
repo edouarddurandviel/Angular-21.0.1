@@ -7,7 +7,7 @@
     "types": [],
     "paths": {
       "@shared/*": ["./src/app/shared/*"],
-      "@environments/*": ["./src/app/environments/*"],
+      "@environments/*": ["./src/environments/*"],
     }
   },
   "include": [

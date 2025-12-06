@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '@environments/environment.development';
+import { environment } from '../../../../environments/environment.development';
 
 @Injectable({ providedIn: 'root' })
 export class UnsplashService {
@@ -9,12 +9,15 @@ export class UnsplashService {
   private unsplashUrl = environment.unsplashUrl;
   private ACCESS_KEY = environment.accessKey;
 
-  searchForPhotos(): Observable<any[]> {
-    const result = this.http.get<any[]>(`${this.unsplashUrl}/search/photos?query=sky`, {
-      headers: {
-        Authorization: `Client-ID ${this.ACCESS_KEY}`,
+  searchForPhotos(color: string): Observable<any[]> {
+    const result = this.http.get<any[]>(
+      `${this.unsplashUrl}/search/photos?query=sky&color=${color}&content_filter=high`,
+      {
+        headers: {
+          Authorization: `Client-ID ${this.ACCESS_KEY}`,
+        },
       },
-    });
+    );
 
     return result;
   }

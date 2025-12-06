@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@angular/aria':
+        specifier: ^21.0.2
+        version: 21.0.2(@angular/cdk@21.0.2(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))
       '@angular/cdk':
         specifier: ^21.0.2
         version: 21.0.2(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -194,6 +197,12 @@ packages:
   '@angular-devkit/schematics@21.0.1':
     resolution: {integrity: sha512-3koB1xJNkqMg7g6JwH2rhQO268WjnPVA852lwoLW7wzSZRpJH0kHtZsnY9FYOC2kbmAGnCWWbnPLJ5/T1wemoA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
+
+  '@angular/aria@21.0.2':
+    resolution: {integrity: sha512-5qqkEU6FLP5gncDhenhmZaPzAa0iA7kTI+t6bhiDuwUweR6e1zQLYztEeNFROqHw6Cgg0JDGlIcv+45NylJjvg==}
+    peerDependencies:
+      '@angular/cdk': 21.0.2
+      '@angular/core': ^21.0.0 || ^22.0.0
 
   '@angular/build@21.0.2':
     resolution: {integrity: sha512-5ZW4GZxAUXV7Vin+c42wKf6HhkYsexeUSb45K+f6aQVxLAwCEegJWwfQ6bReDw1ANDzXIA1Osh4zcsgOQ58EDw==}
@@ -3404,6 +3413,12 @@ snapshots:
       rxjs: 7.8.2
     transitivePeerDependencies:
       - chokidar
+
+  '@angular/aria@21.0.2(@angular/cdk@21.0.2(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))':
+    dependencies:
+      '@angular/cdk': 21.0.2(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2)
+      '@angular/core': 21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)
+      tslib: 2.8.1
 
   '@angular/build@21.0.2(@angular/compiler-cli@21.0.3(@angular/compiler@21.0.3)(typescript@5.9.3))(@angular/compiler@21.0.3)(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(@angular/platform-browser@21.0.3(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)))(@types/node@24.10.1)(chokidar@4.0.3)(karma@6.4.4)(postcss@8.5.6)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
