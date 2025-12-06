@@ -6,7 +6,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  signal,
   viewChild,
   viewChildren,
 } from '@angular/core';
