@@ -3,15 +3,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "outDir": "./out-tsc/app",
     "types": [],
     "paths": {
       "@shared/*": ["./src/app/shared/*"],
-      "@environments/*": ["./src/environments/*"],
+      "@environments/*": ["./src/environments/*"]
     }
   },
   "include": [
-    "src/**/*.ts",
+    "src/**/*.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"
