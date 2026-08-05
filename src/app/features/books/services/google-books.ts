@@ -14,7 +14,7 @@ export class GoogleBooksService {
       .get<{
         items: Book[];
       }>(
-        'https://www.googleapis.com/books/v1/volumes?maxResults=5&orderBy=relevance&q=oliver%20sacks',
+        'https://https://www.googleapis.com/books/v1/volumes?q=harry+potter&key=AIzaSyCo0RWSN38IDMchELuZndezNbjYo6-9Joo',
       )
       .pipe(map((books) => books.items || []));
   }
