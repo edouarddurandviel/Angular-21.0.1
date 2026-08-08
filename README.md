@@ -1,15 +1,13 @@
 # Codebase
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
-
-## Development server
-
-- Grid, Templates and Modules: @ng-bootstrap/ng-bootstrap
+- Grid, Templates and Modules responsive layout with: @ng-bootstrap/ng-bootstrap
 - State management: @ngrx/store, Signals 
 - Forms submition: @ngrx/entity, 
-- Custom made components with @angular and css keyframes.
+- Custom made reusable components with @angular and css keyframes animations.
 
 Login form and profil account details. CRUD - Book collection, Unsplash photo mosaic, html5 canvas charts.
+
+## Development server
 
 ### To start a local development server, run:
 ```bash

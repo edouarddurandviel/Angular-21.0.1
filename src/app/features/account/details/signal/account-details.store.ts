@@ -36,7 +36,7 @@ export class AccountDetailStore {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Failed to load product');
+        this.error.set('Failed to load account');
         this.loading.set(false);
       },
     });
