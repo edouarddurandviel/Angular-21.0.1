@@ -11,6 +11,7 @@ import {
 import { AccordionComponent } from '@shared/components/accordion/accordion.component';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { CustomTitlePipe } from '@shared/pipes/title.pipe';
 
 type content = {
   title: string;
@@ -35,6 +36,7 @@ export type AccountDetails = {
     NgbAccordionHeader,
     NgbAccordionDirective,
     AccordionComponent,
+    CustomTitlePipe,
   ],
   providers: [AccountDetailStore],
   templateUrl: './account-details.component.html',
@@ -44,6 +46,6 @@ export class AccountdetailsComponent {
   store = inject(AccountDetailStore);
 
   private route = inject(ActivatedRoute);
-  private data = toSignal(this.route.data);
+  data = toSignal(this.route.data);
   content = computed(() => this.data()?.['userData'] as AccountDetails | undefined);
 }

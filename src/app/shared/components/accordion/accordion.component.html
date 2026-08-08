@@ -2,7 +2,7 @@
   @for (item of items; track item) {
     <div class="accordion-item">
       <button class="accordion-header" (click)="toggle(item)">
-        <span>{{ item.title }}</span>
+        <span class="accordion-title">{{ item.title }}</span>
         <span class="arrow" [class.open]="item.open"></span>
       </button>
 

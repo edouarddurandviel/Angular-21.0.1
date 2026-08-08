@@ -6,7 +6,7 @@
     "codebase": {
       "projectType": "application",
       "schematics": {
-          "@schematics/angular:component": {
+        "@schematics/angular:component": {
           "style": "scss"
         }
       },
@@ -75,18 +75,9 @@
           "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "configPath": "jest.config.ts"
           }
         }
       }

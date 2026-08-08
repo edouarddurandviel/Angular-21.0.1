@@ -12,6 +12,7 @@ import { subscriptionReducer } from './state/account/reducer';
 import { booksReducer } from './features/books/state/reducer';
 import { collectionReducer } from './features/books/state/collection';
 import { unsplashPhotoReducer } from './features/unsplash/state';
+import { provideMockStore } from '@ngrx/store/testing';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
       collection: collectionReducer,
       unsplash: unsplashPhotoReducer.reducer,
     }),
+    // provideMockStore(),
   ],
 };

@@ -14,7 +14,7 @@
         accountdetails works! account page data: <strong>{{ post.id }}</strong> defined in route
       </li>
       <li>accountdetails works! this userId data from: {{ post.userId }} directly from params</li>
-      <li>accountdetails works! this userId data from: {{ post.title }} directly from params</li>
+      <li class="account_detail-hightlight">{{ post.title | titlePipe }}</li>
       <li>accountdetails works! this userId data from: {{ post.body }} directly from params</li>
     </ul>
   }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Notfound } from './notfound';
+import { Notfound } from './notfound.component';
 
 describe('Notfound', () => {
   let component: Notfound;

@@ -1,19 +1,43 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import * as Selectors from './state/selectors';
 
-import { Unsplash } from './unsplash';
+import { UnsplashListComponent } from './unsplash';
 
 describe('Unsplash', () => {
-  let component: Unsplash;
-  let fixture: ComponentFixture<Unsplash>;
+  let component: UnsplashListComponent;
+  let fixture: ComponentFixture<UnsplashListComponent>;
+
+  let store: MockStore;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Unsplash],
+    TestBed.configureTestingModule({
+      imports: [UnsplashListComponent],
+      providers: [
+        provideMockStore({
+          selectors: [
+            {
+              selector: Selectors.photosSelector,
+              value: [],
+            },
+            {
+              selector: Selectors.photosLoadingSelector,
+              value: false,
+            },
+            {
+              selector: Selectors.photosErrorSelector,
+              value: false,
+            },
+          ],
+        }),
+      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Unsplash);
+    store = TestBed.inject(MockStore);
+    fixture = TestBed.createComponent(UnsplashListComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+
+    fixture.detectChanges();
   });
 
   it('should create', () => {

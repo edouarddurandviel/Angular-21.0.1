@@ -8,7 +8,7 @@
         <form (submit)="onSubmit($event)" class="row g-3">
           <div class="mb-3">
             <label for="email" class="form-label">Email: </label>
-            <input id="email" type="email" class="form-control" [field]="loginForm.email" />
+            <input id="email" type="email" class="form-control" [formField]="loginForm.email" />
             @if (loginForm.email().touched() && loginForm.email().invalid()) {
               <div class="alert-danger small">
                 @for (error of loginForm.email().errors(); track error) {
@@ -24,7 +24,7 @@
               id="password"
               type="password"
               class="form-control"
-              [field]="loginForm.password"
+              [formField]="loginForm.password"
             />
             @if (loginForm.password().touched() && loginForm.password().invalid()) {
               <div class="alert-danger small">
@@ -38,16 +38,40 @@
           <div class="mb-3">
             @if (rolesData) {
               <label for="role" class="form-label">Role:</label>
-              <select [field]="loginForm.roleId" id="role" class="form-select form-control">
+              <select
+                [formField]="loginForm.roleId"
+                id="role"
+                class="form-select form-control"
+                (change)="roleChanged($event)"
+              >
                 <option value="">Select a role</option>
                 @for (role of rolesData; track role.id) {
                   <option [value]="role.id">{{ role.name }}</option>
                 }
               </select>
+              @if (loginForm.roleId().touched() && loginForm.roleId().invalid()) {
+                <div class="alert-danger small">
+                  @for (error of loginForm.roleId().errors(); track error) {
+                    <li>{{ error.message }}</li>
+                  }
+                </div>
+              }
+              @if (selectedOption$()) {
+                <span>{{ selectedOption$() }} was selected</span>
+              }
             }
           </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="
+              loginForm.email().invalid() ||
+              loginForm.password().invalid() ||
+              loginForm.roleId().invalid()
+            "
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '@environments/environment.development';
 import { Book } from '../state/model';
 
 @Injectable({ providedIn: 'root' })
@@ -14,7 +15,7 @@ export class GoogleBooksService {
       .get<{
         items: Book[];
       }>(
-        'https://www.googleapis.com/books/v1/volumes?maxResults=5&orderBy=relevance&q=oliver%20sacks',
+        `https://www.googleapis.com/books/v1/volumes?q=harry+potter&key=${environment.googleApiKey}`,
       )
       .pipe(map((books) => books.items || []));
   }

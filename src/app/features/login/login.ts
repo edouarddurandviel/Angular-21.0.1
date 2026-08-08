@@ -1,7 +1,5 @@
-import { KeyValuePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { form, Field, required, email } from '@angular/forms/signals';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { form, FormField, required, email } from '@angular/forms/signals';
 import { Router } from '@angular/router';
 
 type Roles = {
@@ -17,7 +15,7 @@ interface LoginData {
 
 @Component({
   selector: 'app-login',
-  imports: [Field],
+  imports: [FormField],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -26,6 +24,8 @@ export class Login {
   // forms with signal strategy
   /////////////////////////////
   router = inject(Router);
+
+  selectedOption$ = signal<string>('');
 
   loginModel = signal<LoginData>({
     email: '',
@@ -37,6 +37,7 @@ export class Login {
     required(schemaPath.email, { message: 'Email is required' });
     email(schemaPath.email, { message: 'Enter a valid email address' });
     required(schemaPath.password, { message: 'Password is required' });
+    required(schemaPath.roleId, { message: 'Role is required' });
   });
 
   rolesData: Array<Roles> = [
@@ -52,6 +53,18 @@ export class Login {
     // e.g. await this.authService.login(credentials);
     this.#setSessionToken(credentials, { token: 'qsdfd546464qsdf4df' });
     this.router.navigate(['/']);
+  }
+
+  roleChanged(event: Event) {
+    const role = event.target as HTMLSelectElement;
+    const optionText = role.options[role.selectedIndex].text;
+    if (role.selectedIndex > 0) {
+      this.selectedOption$.set(optionText);
+    } else {
+      this.selectedOption$.set('');
+    }
+
+    if (role) return;
   }
 
   #setSessionToken(subscription: any, token: any) {

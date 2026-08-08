@@ -21,8 +21,7 @@ export class Chart {
     this.container = container;
     this.options = options;
     this.dataSource = options.data;
-    this.axesLabels = options.axesLabel, 
-    this.styles = options.styles;
+    ((this.axesLabels = options.axesLabel), (this.styles = options.styles));
     this.ratio = window.devicePixelRatio;
 
     this.canvas = document.createElement('canvas');
@@ -84,24 +83,24 @@ export class Chart {
     }
   }
 
-  #buildXAxis(){
-    const { options } = this
+  #buildXAxis() {
+    const { options } = this;
     const bottom = document.getElementById('canvasArea_bottom') as HTMLElement;
     const canvas = document.createElement('canvas');
     bottom.appendChild(canvas);
     const ctx = canvas.getContext('2d');
-    if(ctx){
+    if (ctx) {
       ctx.clearRect(0, 0, 30, options.size.height);
     }
   }
 
-  #buildYAxis(){
-     const { options } = this
+  #buildYAxis() {
+    const { options } = this;
     const bottom = document.getElementById('canvasArea_left') as HTMLElement;
     const canvas = document.createElement('canvas');
     bottom.appendChild(canvas);
     const ctx = canvas.getContext('2d');
-    if(ctx){
+    if (ctx) {
       ctx.clearRect(0, 0, options.size.width, 30);
     }
   }

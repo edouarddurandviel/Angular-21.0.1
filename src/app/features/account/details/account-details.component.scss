@@ -11,5 +11,9 @@
       background-color: oklch(98.606% 0.07391 107.713);
       @include detail.horizontal-align;
     }
+    &-hightlight {
+      background-color: oklch(58.377% 0.20376 259.322);
+      color: white;
+    }
   }
 }

@@ -3,4 +3,5 @@ export const environment = {
   apiURL: '',
   unsplashUrl: 'https://api.unsplash.com',
   accessKey: 'HfS6VON2Xod6qiCsWaYwt5DgMrKBUxHmaxcLPlSu2ZI',
+  googleApiKey: 'AIzaSyCo0RWSN38IDMchELuZndezNbjYo6-9Joo',
 };

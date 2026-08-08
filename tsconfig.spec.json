@@ -3,11 +3,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "outDir": "./out-tsc/spec",
-    "types": [
-      "jasmine"
-    ]
+    "paths": {
+      "@shared/*": ["./src/app/shared/*"],
+      "@environments/*": ["./src/environments/*"]
+    },
+    "types": ["jest"],
+    "esModuleInterop": true,
   },
   "include": [
-    "src/**/*.ts"]
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"]
 }
