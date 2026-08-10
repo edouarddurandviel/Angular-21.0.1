@@ -6,6 +6,6 @@ import { Book } from '../../state/model';
   templateUrl: './book-collection.component.html',
 })
 export class BookCollectionComponent {
-  @Input() books: ReadonlyArray<Book> = [];
+  @Input() books: Book[] = [];
   @Output() remove = new EventEmitter<string>();
 }

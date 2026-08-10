@@ -12,6 +12,9 @@ import { AccordionComponent } from '@shared/components/accordion/accordion.compo
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CustomTitlePipe } from '@shared/pipes/title.pipe';
+import { AccountdetailsRepository } from './account-details.repository';
+import { AccountdetailsFacade } from './account-details.facade';
+import { AccountdetailsService } from './account-details.service';
 
 type content = {
   title: string;
@@ -38,14 +41,23 @@ export type AccountDetails = {
     AccordionComponent,
     CustomTitlePipe,
   ],
-  providers: [AccountDetailStore],
+  providers: [
+    AccountDetailStore,
+    AccountdetailsFacade,
+    {
+      provide: AccountdetailsRepository,
+      useClass: AccountdetailsService,
+    },
+  ],
   templateUrl: './account-details.component.html',
   styleUrl: './account-details.component.scss',
 })
 export class AccountdetailsComponent {
+  // account resolver dans route
   store = inject(AccountDetailStore);
 
   private route = inject(ActivatedRoute);
-  data = toSignal(this.route.data);
-  content = computed(() => this.data()?.['userData'] as AccountDetails | undefined);
+  userData = toSignal(this.route.data);
+
+  filteredContent = computed(() => this.userData()?.['userData'] as AccountDetails | undefined);
 }

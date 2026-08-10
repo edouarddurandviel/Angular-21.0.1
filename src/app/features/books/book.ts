@@ -32,6 +32,12 @@ export class BookComponent implements OnInit {
 
     this.booksService
       .getBooks()
-      .subscribe((books) => this.store.dispatch(BooksApiActions.retrievedBookList({ books })));
+      .subscribe({
+        next: (books) => this.store.dispatch(BooksApiActions.retrievedBookList({ books })),
+        error: (error) => this.store.dispatch(BooksApiActions.retrievedBookListFailure({ error })),
+        complete: () => {
+          
+        },
+      });
   }
 }

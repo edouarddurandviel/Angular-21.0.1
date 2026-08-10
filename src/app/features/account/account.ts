@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Subscription } from './account.types';
+import { Subscription } from './account.interface';
 import { KeyValuePipe } from '@angular/common';
 import { Router } from '@angular/router';
 

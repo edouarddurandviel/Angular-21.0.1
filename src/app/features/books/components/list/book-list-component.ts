@@ -6,6 +6,6 @@ import { Book } from '../../state/model';
   templateUrl: './book-list-component.html',
 })
 export class BookListComponent {
-  @Input() books: ReadonlyArray<Book> = [];
+  @Input() books: Book[] = [];
   @Output() add = new EventEmitter<string>();
 }

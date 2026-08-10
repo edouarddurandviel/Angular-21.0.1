@@ -2,6 +2,12 @@ import { createFeature, createReducer, on } from '@ngrx/store';
 import * as UnsplashActions from './actions';
 
 export interface PhotoList {
+  id: number;
+  description: string;
+  updated_at: string;
+  urls: { raw: string };
+  alt_desctiption: string;
+  user: { name: string };
   total: number;
   total_page: number;
   results: any[];

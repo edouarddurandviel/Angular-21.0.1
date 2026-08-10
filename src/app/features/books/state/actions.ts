@@ -26,5 +26,7 @@ export const BooksApiActions = createActionGroup({
   source: 'Books API',
   events: {
     'Retrieved Book List': props<{ books: ReadonlyArray<Book> }>(),
+    'Retrieved Book List failure': props<{ error: any }>(),
+    'Retrieved Book List success': props<{ books: Book[] }>(),
   },
 });

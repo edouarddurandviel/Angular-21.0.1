@@ -47,7 +47,7 @@ export const routes: Routes = [
     component: UnsplashListComponent,
     title: 'Unsplash',
     canActivate: [AuthGuard],
-    providers: [provideEffects({ getAllPhotosEffect$ })],
+    providers: [provideEffects({ getAllPhotosEffect$ })], // @ng/rxjs data provider
   },
   {
     path: 'create-account',
@@ -60,7 +60,7 @@ export const routes: Routes = [
     component: AccountdetailsComponent,
     title: 'Account details',
     resolve: {
-      userData: accountResolver,
+      userData: accountResolver, // get data first
     },
     data: { accountPageData: 'Account page detail for page!!!!' },
     canActivate: [AuthGuard],

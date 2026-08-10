@@ -8,22 +8,30 @@ import { AriaSelectComponent } from '@shared/components/aria-select/aria-select'
 
 @Component({
   selector: 'app-unsplash',
-  imports: [AsyncPipe, JsonPipe, AriaSelectComponent],
+  imports: [
+    // AsyncPipe, 
+    // JsonPipe, 
+    AriaSelectComponent
+  ],
   templateUrl: './unsplash.html',
   styleUrls: ['./unsplash.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UnsplashListComponent implements OnInit {
+export class UnsplashListComponent {
   private store = inject(Store);
 
-  unsplashResults$: Observable<any[]> = this.store
-    .select(Selectors.photosSelector)
-    .pipe(distinctUntilChanged());
+  // unsplashResults$: Observable<any[]> = this.store
+  //   .select(Selectors.photosSelector)
+  //   .pipe(distinctUntilChanged());
+    
+  unsplashResults = this.store.selectSignal(Selectors.photosSelector);
+  loading = this.store.selectSignal(Selectors.photosLoadingSelector);
+  error = this.store.selectSignal(Selectors.photosErrorSelector);
 
-  loading$ = this.store.select(Selectors.photosLoadingSelector);
-  error$ = this.store.select(Selectors.photosErrorSelector);
+  // loading$ = this.store.select(Selectors.photosLoadingSelector);
+  // error$ = this.store.select(Selectors.photosErrorSelector);
 
-  ngOnInit() {
+  constructor() {
     this.store.dispatch(UnsplashActions.getAllPhotos({ color: 'yellow' }));
   }
 }
